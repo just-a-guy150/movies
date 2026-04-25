@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router"
 import Movie from "./Pages/Movie"
+import SearchAppBar from "./components/header"
 
 function App() {
     return (
@@ -12,7 +13,7 @@ function App() {
                 }
             }
         >
-            <header>RoboMovies</header>
+            <SearchAppBar />
             <main style={{ flex: 1 }}>
                 <Routes>
                     <Route path="/" element={<h1>Main</h1>}></Route>
