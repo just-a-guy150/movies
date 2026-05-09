@@ -1,6 +1,9 @@
 import { Route, Routes } from "react-router"
 import Movie from "./Pages/Movie"
 import SearchAppBar from "./components/header"
+import Footer from "./components/Footer"
+import Main from "./Pages/Main"
+import { Container } from "@mui/material"
 
 function App() {
     return (
@@ -14,16 +17,14 @@ function App() {
             }
         >
             <SearchAppBar />
-            <main style={{ flex: 1 }}>
+            <Container>
                 <Routes>
-                    <Route path="/" element={<h1>Main</h1>}></Route>
+                    <Route path="/" element={<Main />}></Route>
                     <Route path="/movie/:id" element={<Movie />}></Route>
                     <Route path="/*" element={<h1>Not Found</h1>}></Route>
                 </Routes>
-            </main>
-            <footer>
-                <p>&copy; {new Date().getFullYear()} RoboMovies</p>
-            </footer>
+            </Container>
+            <Footer />
         </div>
     )
 }

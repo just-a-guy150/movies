@@ -84,7 +84,7 @@ app.get("/movies", (req, res) => {
 
 	if (req.query.sort) {
 		if (
-			["id", "title", "raiting"].includes(req.query.sort)
+			["id", "title", "rating"].includes(req.query.sort)
 		) {
 			query += " ORDER BY " + req.query.sort
 		} else {

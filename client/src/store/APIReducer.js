@@ -1,4 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import server from "../server.js"
 
 
 const APIReducer = createSlice({
@@ -42,17 +43,17 @@ const APIReducer = createSlice({
     }
 })
 
-export const getMovies = createAsyncThunk('API/getMovies', async () => {
+export const getMovies = createAsyncThunk('API/getMovies', async (data) => {
     let response = await server({
         url: '/movies',
         method: 'GET',
         params: data
     })
-
+    
     return response.data
 })
 
-export const searchMovies = createAsyncThunk('API/searchMovies', async () => {
+export const searchMovies = createAsyncThunk('API/searchMovies', async (data) => {
     let response = await server({
         url: '/search',
         method: 'GET',
