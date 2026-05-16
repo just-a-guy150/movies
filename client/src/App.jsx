@@ -3,21 +3,24 @@ import Movie from "./Pages/Movie"
 import SearchAppBar from "./components/header"
 import Footer from "./components/Footer"
 import Main from "./Pages/Main"
-import { Container } from "@mui/material"
+import { Container, useTheme } from "@mui/material"
 
 function App() {
+    let theme = useTheme()
     return (
         <div
             style={
                 {
                     display: 'flex',
                     flexDirection: 'column',
-                    minHeight: '100vh'
+                    minHeight: '100vh',
+                    backgroundColor: theme.palette.background.default,
+                    color: theme.palette.text.default
                 }
             }
         >
             <SearchAppBar />
-            <Container>
+            <Container sx={{ flexGrow: 1 }}>
                 <Routes>
                     <Route path="/" element={<Main />}></Route>
                     <Route path="/movie/:id" element={<Movie />}></Route>
