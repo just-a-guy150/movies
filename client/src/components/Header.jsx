@@ -8,6 +8,12 @@ import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 
+import { Button } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeTheme } from '../store/generalReducer';
+import SunnyIcon from '@mui/icons-material/Sunny';
+import DarkModeIcon from '@mui/icons-material/DarkMode';
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -51,6 +57,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function SearchAppBar() {
+  let t = useSelector((state) => state.general.theme)
+  let dispatch = useDispatch()
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -72,6 +81,18 @@ export default function SearchAppBar() {
           >
             RoboMovies
           </Typography>
+          <Button
+            variant='text'
+            color='inherit'
+            onClick={
+              () => {
+                dispatch(changeTheme(t === 'light' ? 'dark' : 'light'))
+              }
+            }
+
+          >
+            <>{t === 'light' ? <SunnyIcon /> : <DarkModeIcon />}</>
+          </Button>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -83,6 +104,6 @@ export default function SearchAppBar() {
           </Search>
         </Toolbar>
       </AppBar>
-    </Box>
+    </Box >
   );
 }

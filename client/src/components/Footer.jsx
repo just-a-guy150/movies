@@ -6,7 +6,6 @@ export default function Footer() {
         <Box
             component={"footer"}
             sx={{
-                color: "#fff",
                 bgcolor: "primary.main",
                 boxShadow: "0px -2px 4px rgba(0, 0, 0, 0.2)",
             }}

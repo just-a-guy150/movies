@@ -32,7 +32,7 @@ let lightTheme = createTheme({
     palette: {
         type: 'light',
         primary: {
-            main: '#5b669c',
+            main: '#909dd8',
         },
         secondary: {
             main: '#d2386c',
@@ -43,7 +43,7 @@ let lightTheme = createTheme({
         },
     },
     typography: {
-        fontFamily: 'Comfortaa, sans-serif'
+        fontFamily: 'Comfortaa, sans-serif',
     }
 })
 
